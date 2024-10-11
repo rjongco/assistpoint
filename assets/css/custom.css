@@ -95,18 +95,18 @@ nav.side-navbar ul li a:hover {
 /*navbar active*/
 nav.side-navbar ul li:hover,nav.side-navbar ul li:active,nav.side-navbar ul li.nav-active{
     background: #3B82F6;
-    border-left: 4px solid #fe0000;
+    /* border-left: 4px solid #fe0000; */
     color: white;
 }
 
 nav.side-navbar a[aria-expanded="true"]{
 background: #3B82F6;
-border-left: 4px solid #fe0000;
+/* border-left: 4px solid #fe0000; */
 color: white;
 }
 nav.side-navbar a[aria-expanded="true"] ~ nav.side-navbar ul li{
 background: #3B82F6;
-border-left: 4px solid #fe0000;
+/* border-left: 4px solid #fe0000; */
 color: white;
 }
 nav.side-navbar ul li li a {

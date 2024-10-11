@@ -538,7 +538,7 @@ nav.side-navbar.shrinked ul li a {
 /*navbar active*/
 nav.side-navbar.shrinked ul li:hover,nav.side-navbar.shrinked ul li:active,nav.side-navbar.shrinked ul li.nav-active{
   background: #3B82F6;
-  border-left: 4px solid #fe0000;
+  /* border-left: 4px solid #fe0000; */
   color: white;
 }
 
@@ -576,7 +576,7 @@ nav.side-navbar.shrinked ul li a i {
 }
 nav.side-navbar.shrinked ul li a[aria-expanded="true"]{
   background: #3B82F6;
-  border-left: 4px solid #fe0000;
+  /* border-left: 4px solid #fe0000; */
   color: white;
 }
 nav.side-navbar.shrinked ul li a[aria-expanded="true"] i{
