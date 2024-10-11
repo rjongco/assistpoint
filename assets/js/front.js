@@ -42,8 +42,11 @@ $(document).ready(function () {
     // ------------------------------------------------------- //
     // Sidebar Functionality
     // ------------------------------------------------------ //
-    $('#toggle-btn').on('click', function (e) {
-        e.preventDefault();
+    $('#side-navbar').on('click', function (e) {
+        // e.preventDefault();
+        if (e.target != e.currentTarget) {
+            return;
+        }
         $(this).toggleClass('active');
 
         $('.side-navbar').toggleClass('shrinked');

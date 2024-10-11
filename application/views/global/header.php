@@ -164,7 +164,7 @@
     </header>
     <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
-        <nav class="side-navbar">
+        <nav class="side-navbar" id="side-navbar">
             <!-- Sidebar Navidation Menus-->
             <ul class="list-unstyled">
                 <!-- TODO: Change below session data fetching !-->
