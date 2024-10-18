@@ -116,12 +116,12 @@ class Ticket_model extends BaseMySQL_model {
                 $ticket_no = $this->getTicketNoFromID($res);
                 $result = parent::setByID($res, array('ticket_no' => $ticket_no));
                 // add attachment reference
-                $this->addAttachmentRef($attachments['attachments'], $ticket_no);
+                $this->addAttachmentRef(isset($attachments['attachments']) ? $attachments['attachments'] : [], $ticket_no);
                 // send update Email
                 $usernames = array($info['owner']);
                 array_merge($usernames, explode(';', $info['cc']));
-                //if($result)
-                  //  $this->sendUpdateEmail($usernames,'[#'.$ticket_no.'] '.$info['subject'], $info['message']);
+                if($result)
+                   $this->sendUpdateEmail($usernames,'[#'.$ticket_no.'] '.$info['subject'], $info['message']);
                 return $ticket_no;
             }
                 
@@ -152,12 +152,12 @@ class Ticket_model extends BaseMySQL_model {
             $info = parent::getBy(array('owner', 'cc', 'ticket_no', 'subject'), array('id'=>$data['id']));
      
             // send update Email
-            // if(!empty($info) && $res){
-            //     $info= $info[0];
-            //     $usernames = array($info['owner']);
-            //     $usernames = array_merge(explode(';', $info['cc']), $usernames);
-            //     $this->sendUpdateEmail($usernames,'[#'.$info["ticket_no"].'] '.$info['subject'], 'From @'.$info['owner'].': <br>'.$meta['plain_txt_message']);
-            // }
+            if(!empty($info) && $res){
+                $info= $info[0];
+                $usernames = array($info['owner']);
+                $usernames = array_merge(explode(';', $info['cc']), $usernames);
+                $emailresult = $this->sendUpdateEmail($usernames,'[#'.$info["ticket_no"].'] '.$info['subject'], 'From @'.$info['owner'].': <br>'.$meta['plain_txt_message']);
+            }
 
             
         }
@@ -201,12 +201,12 @@ class Ticket_model extends BaseMySQL_model {
         $info = parent::getBy(array('owner', 'cc', 'ticket_no', 'subject'), array('ticket_no'=>$data['ticket']));
      
             // send update Email
-            // if(!empty($info) && $res){
-            //     $info= $info[0];
-            //     $usernames = array($info['owner'], $data['owner']);
-            //     $usernames = array_merge(explode(';', $info['cc']), $usernames);
-            //     $this->sendUpdateEmail($usernames,'[#'.$info["ticket_no"].'] '.$info['subject'], 'From @'.$data['owner'].': <br>'.$data['message']);
-            // }
+            if(!empty($info) && $res){
+                $info= $info[0];
+                $usernames = array($info['owner'], $data['owner']);
+                $usernames = array_merge(explode(';', $info['cc']), $usernames);
+                $this->sendUpdateEmail($usernames,'[#'.$info["ticket_no"].'] '.$info['subject'], 'From @'.$data['owner'].': <br>'.$data['message']);
+            }
         return $res;
     }
 
@@ -327,7 +327,9 @@ class Ticket_model extends BaseMySQL_model {
     public function sendUpdateEmail($users, $subject, $message){
         $to_emails = array();
         foreach ($users as $user) {
-           array_push($to_emails, $this->getEmailFromUsername($user));
+            if(!empty(trim($user))){
+                array_push($to_emails, $this->getEmailFromUsername($user));
+            }
         }
         return $this->Email->send($to_emails, CLIENT_FROM_EMAIL, $subject, $message.CLIENT_MAIL_FOOTER, CLIENT_REPLYTO_EMAIL);
     }

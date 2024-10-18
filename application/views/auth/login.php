@@ -41,6 +41,6 @@
         </div>
     </div>
     <div class="copyrights text-center text-dark">
-        <p>Powered by <a href="<?= DEV_COMPANY_URL ?>" class="external"><img src="/assets/img/logo-red.png" width="65" alt="Rafael Jongco"></a></p>
+        <p>Powered by <a href="<?= DEV_COMPANY_URL ?>" class="external"><img src="/assets/img/logo-red.png" width="65" alt="CodeIgniter"></a></p>
     </div>
 </div>

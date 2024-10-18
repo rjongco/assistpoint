@@ -125,11 +125,10 @@
                     <!-- Navbar Header-->
                     <div class="navbar-header">
                         <!-- Navbar Brand --><a href="<?= BASE_URL ?>user/dashboard" class="navbar-brand d-none d-sm-inline-block">
-                            <div class="brand-text d-none d-lg-inline-block"><?= PRODUCT_NAME ?></div>
+                            <div class="brand-text d-none d-lg-inline-block"><img
+                            src="<?= BASE_URL ?>/assets/img/logo.png" width="40" alt="">   <?= PRODUCT_NAME ?></div>
                             <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>ASSIST POINT HELPDESK</strong></div>
                         </a>
-                        <!-- Toggle Button--><a id="toggle-btn" href="#"
-                                                class="menu-btn active"><span></span><span></span><span></span></a>
                     </div>
                     <!-- Navbar Menu -->
                     <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
@@ -178,13 +177,11 @@
         <div class="content-inner">
         <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-bottom: 0rem">
         <p>
-            <strong>Hey!</strong> You can automatically create a ticket by sending an email to helpdesk@ticket.tik.co. You can also reply to any ticket thread from the notification email thread itself !
+            <strong>Hey!</strong> You can automatically create a ticket by sending an email to <?= CLIENT_HELPDESK_EMAIL ?>. You can also reply to any ticket thread from the notification email thread itself !
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
             </p>
-            <hr>
-  <p class="mb-0">Note: Email notifications have been disabled in this demo version.</p>
         </div>
             <!-- Page Header-->
             <header class="page-header">

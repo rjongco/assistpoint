@@ -1,7 +1,7 @@
 <?PHP
 
 require __DIR__ . "/constants.php";
-// require __DIR__ . "/../core/Template_model.php";
+require __DIR__ . "/../core/Template_model.php";
 include_once './vendor/autoload.php';
 use EmailReplyParser\Parser\EmailParser;
 
@@ -14,10 +14,10 @@ class Email_model extends MY_Model
 		parent::__construct();
 		$this->loadCI();
 		$config = array();
-		// if(!empty(CLIENT_SMTP_CONFIG))
-		// 	$config = CLIENT_SMTP_CONFIG;
+		if(!empty(CLIENT_SMTP_CONFIG))
+			$config = CLIENT_SMTP_CONFIG;
 		$this->load->library('email', $config);
-		// $this->CI->load->model('Template_model');
+		$this->CI->load->model('Template_model');
 	}
 
 	public function send($to, $from, $subject, $body, $replyto=NULL)
@@ -31,6 +31,12 @@ class Email_model extends MY_Model
 			->subject($subject)
 			->message($body)
 			->send();
+
+		
+        error_log(print_r([$to, $subject, CLIENT_FROM_EMAIL, CLIENT_REPLYTO_EMAIL], true));
+
+		$debug = $this->email->print_debugger([]);
+        error_log(print_r($debug, true));
 
 		return $result;
 	}

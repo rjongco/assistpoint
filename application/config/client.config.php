@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 include_once __DIR__."/constants.permissions.php";
 
 //Root Url of ur site
-define('BASE_URL', 'http://localhost:49494/assistpoint/');
+define('BASE_URL', 'http://localhost:4444/assistpoint/');
 
 define('PAGE_LOADER', BASE_URL.'assets/img/loading.webp');
 
@@ -35,20 +35,20 @@ define('CLIENT_TICKET_PREFIX', 'TIK-ASTPT-');
 define('CLIENT_TICKET_ID_LENGTH', 6);
 
 //Client Mail Settings
-define('CLIENT_FROM_EMAIL', 'all@xxx.xx.co');
-define('CLIENT_HELPDESK_EMAIL', 'helpdesk@xxx.xx.co');
-define('CLIENT_REPLYTO_EMAIL', 'all@xxx.xx.co');
+define('CLIENT_FROM_EMAIL', 'test.site.email.0000164@gmail.com'); //NEED SMTP
+define('CLIENT_HELPDESK_EMAIL', 'test.site.email.0000164@gmail.com'); //NEED IMAP
+define('CLIENT_REPLYTO_EMAIL', 'test.site.email.0000164@gmail.com'); //NEED IMAP
 define('CLIENT_SMTP_CONFIG', Array(
 	'protocol' => 'smtp',
-	'smtp_host' => 'xx.xxx.com',
-	'smtp_port' => 587,
-	'smtp_user' => 'all@xxx.xx.co',
-	'smtp_pass' => 'xxxxx',
+	'smtp_host' => 'smtp.freesmtpservers.com',
+	'smtp_port' => 25,
+	'smtp_user' => 'test.site.email.0000164@gmail.com',
+	'smtp_pass' => '',
 	'charset'   => 'iso-8859-1',
 	'clrf' => '\r\n',
 	'newline' => '\r\n'
 ));
-define('CLIENT_DOMAIN', 'assistpoint.com');
+define('CLIENT_DOMAIN', 'gmail.com');
 define('CLIENT_MAIL_FOOTER', '<div style="margin-top:10px"><p style="font-size:small;color:#777">—
 <br>
 Reply to this email directly or <a href="'.BASE_URL.'" target="_blank" >view it on the portal.</a>.

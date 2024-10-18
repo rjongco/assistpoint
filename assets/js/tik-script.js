@@ -60,7 +60,7 @@ $("#add_user").on('click', function(e){
             {
                 if(JSON.parse(response)['data']['result']){
                     showNotification('success', 'User created successfully');
-                    window.location.href="/user/dashboard";
+                    window.location.href=BASE_URL+"/user/dashboard";
                 }
                 else
                     showNotification('error', 'User coukd not be created, please try again.')
