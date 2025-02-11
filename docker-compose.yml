@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rjinovino/assistpoint:latest
+    ports:
+      - 4444:80
+    depends_on:
+      db:
+        condition: service_healthy
+    secrets:
+      - db-password
+    environment:
+      - BASE_URL=http://localhost:4444/
+      - PASSWORD_FILE_PATH=/run/secrets/db-password
+      - DB_HOST=db
+      - DB_NAME=assistpoint_demo
+      - DB_USER=root
+  db:
+    image: mariadb
+    restart: always
+    user: root
+    secrets:
+      - db-password
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./assistpoint.sql:/docker-entrypoint-initdb.d/assistpoint.sql  # Volume mapping for SQL dump
+    environment:
+      - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/db-password
+      - MARIADB_DATABASE=assistpoint_demo
+    expose:
+      - 3306
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "/usr/local/bin/healthcheck.sh",
+          "--su-mysql",
+          "--connect",
+          "--innodb_initialized",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db-data:
+
+secrets:
+  db-password:
+    file: ./password.txt

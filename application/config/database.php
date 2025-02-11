@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn'    => '',
-    'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'assistpoint_demo',
-	'dbdriver' => 'mysqli',
+    'hostname' => 'db', // Service name in Docker Compose
+    'username' => 'root',
+    'password' => file_get_contents('/run/secrets/db-password'), // Read password from Docker secret
+    'database' => 'assistpoint_demo', // Database name as per your original config
+    'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,
     'db_debug' => (ENVIRONMENT !== 'production'),
@@ -94,3 +94,4 @@ $db['default'] = array(
     'failover' => array(),
     'save_queries' => TRUE
 );
+

@@ -2,8 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 include_once __DIR__."/constants.permissions.php";
 
-//Root Url of ur site
-define('BASE_URL', 'http://localhost:4444/assistpoint/');
+// Read the base URL from an environment variable, default to localhost:4444 if not set
+define('BASE_URL', getenv('BASE_URL') ?: 'http://localhost:4444/assistpoint/');
+
 
 define('PAGE_LOADER', BASE_URL.'assets/img/loading.webp');
 

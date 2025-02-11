@@ -175,14 +175,14 @@
 
         </nav>
         <div class="content-inner">
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-bottom: 0rem">
+        <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-bottom: 0rem">
         <p>
             <strong>Hey!</strong> You can automatically create a ticket by sending an email to <?= CLIENT_HELPDESK_EMAIL ?>. You can also reply to any ticket thread from the notification email thread itself !
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
             </p>
-        </div>
+        </div> -->
             <!-- Page Header-->
             <header class="page-header">
                 <div class="container-fluid">

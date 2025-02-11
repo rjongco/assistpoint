@@ -672,7 +672,7 @@ nav.navbar {
   background: #2f333e;
   padding-top: 15px;
   padding-bottom: 15px;
-  color: #fff;
+  color: #2f333e;
   position: relative;
   border-radius: 0;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
@@ -1850,6 +1850,10 @@ input.input-material {
 input.input-material.is-invalid {
   border-color: #dc3545 !important;
 }
+input.input-material.hidden {
+  display: none;
+  
+}
 
 input.input-material:focus {
   border-color: #796AEE;
@@ -1923,7 +1927,7 @@ input.input-material.is-invalid ~ label {
   height: 100%;
   display: block;
   z-index: -1;
-  background: url(../img/bg.jpg);
+  background: url(../images/ui/login-image.jpg);
   background-size: cover;
   -webkit-filter: blur(10px);
   filter: blur(10px);

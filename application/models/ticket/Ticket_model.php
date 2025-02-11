@@ -120,8 +120,11 @@ class Ticket_model extends BaseMySQL_model {
                 // send update Email
                 $usernames = array($info['owner']);
                 array_merge($usernames, explode(';', $info['cc']));
-                if($result)
-                   $this->sendUpdateEmail($usernames,'[#'.$ticket_no.'] '.$info['subject'], $info['message']);
+                if($result){
+                    // UNCOMMENT IF SMTP SERVER IS AVAILABLE
+                    // $this->sendUpdateEmail($usernames,'[#'.$ticket_no.'] '.$info['subject'], $info['message']);
+
+                }
                 return $ticket_no;
             }
                 
@@ -156,7 +159,9 @@ class Ticket_model extends BaseMySQL_model {
                 $info= $info[0];
                 $usernames = array($info['owner']);
                 $usernames = array_merge(explode(';', $info['cc']), $usernames);
-                $emailresult = $this->sendUpdateEmail($usernames,'[#'.$info["ticket_no"].'] '.$info['subject'], 'From @'.$info['owner'].': <br>'.$meta['plain_txt_message']);
+                
+                // UNCOMMENT IF SMTP SERVER IS AVAILABLE
+                // $emailresult = $this->sendUpdateEmail($usernames,'[#'.$info["ticket_no"].'] '.$info['subject'], 'From @'.$info['owner'].': <br>'.$meta['plain_txt_message']);
             }
 
             

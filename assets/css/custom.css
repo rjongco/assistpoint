@@ -68,7 +68,7 @@ nav.side-navbar {
 }
 
 nav.navbar, footer.main-footer {
-    background: #3B82F6;
+    background: #fff;
 }
 
 nav.navbar {
@@ -622,7 +622,12 @@ table.dataTable tbody td .card-close {
 
 /*login page*/
 .login-page .form-holder .info {
-    background: #1c1c1c;
+  background-image: url("../images/ui/login-image-flat.jpg"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 100%; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 input.input-material ~ label.active {
@@ -643,9 +648,6 @@ input.input-material ~ label.active {
     color: #fe0000;
 }
 
-.login-page::before {
-    background: #f7f7f7;
-}
 
 /*select 2 form*/
 /*.select2-container{*/
