@@ -19,6 +19,8 @@ services:
       - DB_HOST=db
       - DB_NAME=assistpoint_demo
       - DB_USER=root
+    networks:
+      - assistpoint-network
   db:
     image: mariadb
     restart: always
@@ -33,6 +35,8 @@ services:
       - MARIADB_DATABASE=assistpoint_demo
     expose:
       - 3306
+    networks:
+      - assistpoint-network
     healthcheck:
       test:
         [
@@ -52,3 +56,7 @@ volumes:
 secrets:
   db-password:
     file: ./password.txt
+
+networks:
+  assistpoint-network:
+    driver: bridge
