@@ -17,7 +17,7 @@ services:
     secrets:
       - db-password
     environment:
-      - BASE_URL=http://localhost:4444/
+      - BASE_URL=https://assistpoint.rafaeljongco.com/
       - PASSWORD_FILE_PATH=/run/secrets/db-password
       - DB_HOST=db
       - DB_NAME=assistpoint_demo
