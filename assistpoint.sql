@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `assistpoint_demo`;
 
+USE `assistpoint_demo`;
 -- --------------------------------------------------------
 
 --

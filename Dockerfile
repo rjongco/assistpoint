@@ -25,7 +25,9 @@ COPY . /var/www/html
 # Make sure that .htaccess is allowed
 RUN echo '<Directory /var/www/html>' >> /etc/apache2/apache2.conf && \
     echo '    AllowOverride All' >> /etc/apache2/apache2.conf && \
-    echo '</Directory>' >> /etc/apache2/apache2.conf
+    echo '</Directory>' >> /etc/apache2/apache2.conf && \
+    echo 'ServerName localhost' >> /etc/apache2/apache2.conf
+
 
 # Set the user to www-data (so that Apache runs with proper permissions)
 USER www-data
